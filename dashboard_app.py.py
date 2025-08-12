@@ -25,6 +25,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Image, Tabl
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 from reportlab.lib.units import inch
 from reportlab.lib import colors
+import os
 
 # Configure logging
 logging.basicConfig(level=logging.DEBUG,
@@ -1677,19 +1678,9 @@ def download_excel_report(n_clicks, dashboard_data, facility):
         )
 
 if __name__ == '__main__':
-    print("🚀 Starting ENHANCED PLASMAN AB Customer Dashboard...") 
-    print("🌐 Access at: http://127.0.0.1:8050")
-    print("✨ NEW FEATURES:")
-    print("   🎨 PLASMAN Official Logo with Perfect Sizing")
-    print("   ⚙️  Dashboard Builder - Configure Everything!")
-    print("   🔄 Customizable Auto-Refresh (10s to 10m or disabled)")
-    print("   📊 Configurable Chart Limits & Animations")
-    print("   📋 Custom Records Per Page Settings")
-    print("   🎯 Default Facility & Time Range Settings")
-    print("   💾 Configuration Persistence")
-    print("   🎭 Beautiful Modal Interface")
-    print("   📱 Responsive Design with Plasman Branding")
-    print("   ✅ All Previous Features Still Working!")
-    print("   🛡️  Press Ctrl+C to stop the server")
-    
-    app.run(debug=True, host='127.0.0.1', port=8050)
+     print("🚀 Starting ENHANCED PLASMAN AB Customer Dashboard...") 
+    port = int(os.environ.get('PORT', 8050))  # Use PORT from environment, fallback to 8050
+    print(f"🌐 Access at: http://0.0.0.0:{port}")
+    # ... your other print statements ...
+
+    app.run(debug=False, host='0.0.0.0', port=port)

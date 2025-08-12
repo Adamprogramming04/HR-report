@@ -1328,12 +1328,19 @@ def download_file(filename):
     except Exception as e:
         print(f"Download error: {e}")
         return jsonify({'error': f'Download failed: {str(e)}'}), 500
-
 if __name__ == '__main__':
-    local_ip = get_local_ip()
-    print(f"\n🚀 HR Monthly Report Generator")
-    print(f"📱 Local: http://127.0.0.1:5000")
-    print(f"🌐 Network: http://{local_ip}:5000")
-    print(f"\nReady to process Excel files and generate HR reports!")
+    # Get port from environment variable for Render deployment
+    port = int(os.environ.get('PORT', 5000))
     
-    app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
+    # Check if running in production (Render sets this)
+    if os.environ.get('RENDER'):
+        # Production settings for Render
+        app.run(host='0.0.0.0', port=port, debug=False)
+    else:
+        # Development settings
+        local_ip = get_local_ip()
+        print(f"\n🚀 HR Monthly Report Generator")
+        print(f"📱 Local: http://127.0.0.1:5000")
+        print(f"🌐 Network: http://{local_ip}:5000")
+        print(f"\nReady to process Excel files and generate HR reports!")
+        app.run(host='0.0.0.0', port=5000, debug=False, threaded=True)
