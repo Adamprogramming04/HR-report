@@ -1,15 +1,4 @@
-<<<<<<< HEAD
-flask==3.0.3
-werkzeug==3.0.3
-pandas==2.1.4
-openpyxl==3.1.2
-reportlab==4.0.7
-matplotlib==3.8.2
-seaborn==0.13.0
-Pillow==10.1.0
-numpy==1.25.2
-gunicorn==21.2.0
-=======
+
 Flask==2.3.3
 Werkzeug==2.3.7
 pandas==2.0.3
@@ -20,4 +9,3 @@ seaborn==0.12.2
 Pillow==10.0.0
 numpy==1.24.3
 gunicorn==21.2.0
->>>>>>> 444ab8dfa512f27912966720e444b3f49c7dcc3b
